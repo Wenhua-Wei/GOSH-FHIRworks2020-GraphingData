@@ -5,6 +5,7 @@ Display the changes of vital signs of patients over time using graphs.
 **Setup**
 
 1. For Mac/Linux user, open a new terminal
+
    For Windows user, open a new Bash terminal (Install Git Bash: https://gitforwindows.org)
 
 1. In the terminal, Clone the repository
