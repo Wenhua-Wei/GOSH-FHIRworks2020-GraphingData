@@ -25,7 +25,7 @@ Display the changes of vital signs of patients over time using graphs.
 7. Open the local host port 
 
         http://localhost:8080/
-   (If you get an error related to localhost port, please change to another avaliable port on lo=ine 106 of app.py)
+   (If you get an error related to localhost port, please change to another avaliable port on line 106 of app.py)
 8. Input a patient ID and select one vital sign to display, then click show to see the graph
 
 **Description**
