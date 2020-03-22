@@ -1,0 +1,121 @@
+<head>
+    <script src="/static/vendor/bootstrap/js/Chart.min.js"></script>
+</head>
+
+{% extends "base.html" %}
+
+{% block graph%} 
+<div class="linechart_container" style="width:1000px;height:420px;">    
+    <canvas id="lineChart"></canvas>
+</div>
+  <script>
+    var ctx = document.getElementById('lineChart').getContext('2d');
+    var li = "{{y_axis}}".replace('[','').replace(']','').split(', ')
+    var xli = "{{x_axis}}".replace('[', '').replace(']','').replace(/&#39;/g,'').split(',')
+    var u = "{{unit[0]}}"
+    var chart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: xli,
+  
+        datasets: [{
+          label: "Unit: {{unit}}",
+          borderColor: 'rgb(255, 99, 132)',
+          backgroundColor: ["#ffb3b3", "#ccddff", "#ffb3b3", "#ccddff", "#ffb3b3", "#ccddff", "#ffb3b3", "#ccddff", "#ffb3b3", "#ccddff", "#ffb3b3", "#ccddff"],
+          data: li
+        }]
+      },
+      options: {
+        legend: { position: 'right' },
+        layout:{
+            padding:{
+                left: 200,
+                bottom: 100,
+            }
+        },
+        scales: {
+          xAxes: [{
+            display: true,
+            scaleLable: {
+              display: true,
+              labelString: "Month"
+            }
+          }],
+          yAxes: [{
+            ticks:{
+                suggestedMin: 10,
+            },
+            display: true,
+            scaleLabel: {
+              display: true,
+              labelString: "Number"
+            }
+            
+          }]
+        }
+      }
+    });
+  </script>
+  
+{% endblock %}
+
+{% block content %}
+<form action="/handler", method="POST">
+<div class="form-group row">
+    <label class="control-label col-sm-2" style="color: white" for="ID">ID:</label>
+    <form action="/handler", method="POST">
+        <div class="col-sm-4">
+            
+            <input type="text" class="form-control" id="inputID" name="inputID" placeholder="Input ID" value={{id[0]}}> 
+        </div>
+        <div class="col-sm-5">
+            <div class="form-group">
+              <select class="form-control" id="sel1" name="sel1">
+                {% for l in label %}
+                    <option>{{l}}</option>
+                {% endfor %}
+              </select>   
+            </div>
+            
+        </div>
+        <div class="form-group">
+            <button type = "submit" class="btn btn-info"> Show </button>
+        </div>
+    </form>
+    
+</div>
+<h6 align="center" style="color: darkgrey;">Sample ID1: 8f789d0b-3145-4cf2-8504-13159edaa747</h6>
+<h6 align="center" style="color: darkgrey;">Sample ID2: b905139e-1601-403c-9d85-f8e3997cdd19</h6>
+<h6 align="center" style="color: darkgrey;">Sample ID3: d9eb4cf6-2894-4627-b912-bbdca07b0401</h6>
+<h6 align="center" style="color: darkgrey;">Sample ID4: ac529235-6fbc-48f0-a3fa-de7f1924d497</h6>
+<h6 align="center" style="color: darkgrey;">Sample ID5: cc0acce0-30e1-40b8-911a-aa33dc094706</h6>
+
+
+<!-- {%for i in info%}
+    {% for k, v in i.items()%}
+        <h1>{{k, v}}</h1>
+    {% endfor %}
+{% endfor %}
+
+{%for d in data%}
+    {% for k, v in d.items()%}
+        <h1>{{k}}</h1>
+        <h1>{{v}}</h1>
+    {% endfor %}
+{% endfor %} -->
+
+<!-- {% for l in label %}
+    <h1>{{l}}</h1>
+{% endfor %}
+
+{% endblock %} -->
+
+<!-- {%for d in data%}
+    <script>
+        var labels = []
+    </script>
+    {% for k, v in d.items()%}
+        labels.push(k)
+    {% endfor %}
+    <h1>labels</h1>
+{% endfor %} -->
