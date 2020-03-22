@@ -6,7 +6,7 @@ Display the changes of vital signs of patients over time using graphs.
 
 1. Clone the repository
 
-        git clone
+        git clone https://github.com/Wenhua-Wei/GOSH-FHIRworks2020-GraphingData.git
 2. Create a virtual environment
 
         virtualenv venv
