@@ -18,7 +18,7 @@ Display the changes of vital signs of patients over time using graphs.
 5. Firstly, run the FHIR API repository and open the local host port
 
         https://github.com/goshdrive/FHIRworks_2020
-6. Go back to the GOSH-FHIRworks2020-GraphingData repository, run
+6. Go back to the GOSH-FHIRworks2020-GraphingData repository, and run the following command
 
         python app.py
 7. Open the local host port 
